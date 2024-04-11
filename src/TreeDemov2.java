@@ -74,11 +74,23 @@ class BinarySearchTree{
 
 
 
-    /*
-    in-order traversal
-    */
-    public void inOrderTraversal(Node root){
-        //implement in here
+    /**
+     * This method performs an in-order traversal of a binary tree and prints out the value of each node.
+     * In in-order traversal, the nodes are recursively visited in the order: left-root-right.
+     *
+     * @param root The root node of the binary tree to start the traversal from.
+     */
+    public void inOrderTraversal(Node root) {
+        if (root != null) {
+            // Recursively traverse the left subtree
+            inOrderTraversal(root.left);
+
+            // Visit the root node (in-order)
+            System.out.print(root.value + " ");
+
+            // Recursively traverse the right subtree
+            inOrderTraversal(root.right);
+        }
     }
 
 
@@ -163,7 +175,7 @@ class BinarySearchTree{
 
 }
 
-public class TreeDemov1 {
+public class TreeDemov2 {
     public static void main(String[] args){
         BinarySearchTree t1  = new BinarySearchTree();
         t1.insert( 24);
@@ -180,3 +192,5 @@ public class TreeDemov1 {
 
     }
 }
+
+
