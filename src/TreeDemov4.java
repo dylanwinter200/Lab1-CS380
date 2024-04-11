@@ -115,13 +115,27 @@ class BinarySearchTree{
 
 
 
-    /*
-    a method to find the node in the tree
-    with a specific value
-    */
-    public boolean find(Node root, int key){
-        //implement in here
-        return false;
+    /**
+     * This method searches for a node with a given key in a binary search tree and
+     * returns true if the node is found, false otherwise.
+     *
+     * @param root The root node of the binary search tree to start the search from.
+     * @param key  The value to search for.
+     * @return     true if a node with the value is found, false otherwise.
+     */
+    public boolean find(Node root, int key) {
+        // Base case: if the tree is empty or the key is at the root of the subtree
+        if (root == null || root.value == key) {
+            return root != null;
+        }
+
+        // If the key is smaller than the root's key, it must be in the left subtree
+        if (key < root.value) {
+            return find(root.left, key);
+        }
+
+        // If the key is larger than the root's key, it must be in the right subtree
+        return find(root.right, key);
     }
 
 
@@ -184,7 +198,7 @@ class BinarySearchTree{
 
 }
 
-public class TreeDemov3 {
+public class TreeDemov4 {
     public static void main(String[] args){
         BinarySearchTree t1  = new BinarySearchTree();
         t1.insert( 24);
