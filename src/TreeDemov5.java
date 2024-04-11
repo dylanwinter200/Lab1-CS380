@@ -140,13 +140,24 @@ class BinarySearchTree{
 
 
 
-    /*
-    a method to find the node in the tree
-    with a smallest key
-    */
-    public int getMin(Node root){
-        //implement in here
-        return 1;
+    /**
+     * This method finds the node with the smallest key in the binary search tree.
+     * Since this is a binary search tree, the smallest key is found in the leftmost node.
+     *
+     * @param root The root node of the binary search tree.
+     * @return The value of the node with the smallest key in the tree, or -1 if the tree is empty.
+     */
+    public int getMin(Node root) {
+        if (root == null) {
+            return -1;  // Indicate that the tree is empty
+        }
+
+        Node current = root;
+        // The leftmost leaf will be the node with the smallest key
+        while (current.left != null) {
+            current = current.left;
+        }
+        return current.value;
     }
 
 
@@ -198,7 +209,7 @@ class BinarySearchTree{
 
 }
 
-public class TreeDemov4 {
+public class TreeDemov5 {
     public static void main(String[] args){
         BinarySearchTree t1  = new BinarySearchTree();
         t1.insert( 24);
